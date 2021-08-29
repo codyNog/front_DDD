@@ -4,4 +4,5 @@ export type User = {
   age: number;
   organization: string;
   features: string[];
+  hogeProperty: string;
 };

@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { backend } from "~/domain";
 import { User } from "~/domain/entity/User";
 
 const initialUser: User = {
@@ -6,7 +7,8 @@ const initialUser: User = {
   name: "",
   age: 0,
   organization: "",
-  features: []
+  features: [],
+  hogeProperty: ""
 };
 
 export const useUserForm = () => {
@@ -37,5 +39,9 @@ export const useUserForm = () => {
     });
   }, []);
 
-  return { user, setName, setAge, setOrganization, setFeatures };
+  const submit = useCallback(async () => {
+    await backend.user.createUser(user);
+  }, [user]);
+
+  return { user, setName, setAge, setOrganization, setFeatures, submit };
 };

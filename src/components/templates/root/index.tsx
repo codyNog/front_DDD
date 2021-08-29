@@ -1,5 +1,5 @@
-import { Header } from "~/components/organisms/Header";
+import { UserForm } from "~/components/organisms/UserForm";
 
 export const Root: React.FC = () => {
-  return <Header />;
+  return <UserForm />;
 };
